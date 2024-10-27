@@ -7,6 +7,7 @@ WORKDIR /quizzer
 RUN make build
 
 FROM alpine
-COPY --from=build --chmod=0711 /root/.local/bin/quizzer /bin/quizzer
+COPY --from=build --chmod=0711 /root/.local/bin/quizzer /bin/quizzer/quizzer
+COPY static /bin/quizzer/static
 RUN apk add gmp gcompat
-CMD ["/bin/quizzer"]
+CMD ["/bin/quizzer/quizzer"]
