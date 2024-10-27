@@ -1,5 +1,5 @@
 
-build: readme
+build:
 	stack install
 
 readme:
